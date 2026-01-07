@@ -1,0 +1,461 @@
+:root {
+    font-family: 'Staatliches', cursive;
+    font-family: 'Covered By Your Grace', cursive;
+    font-family: 'Open Sans', sans-serif;
+}
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+h1, h2, h3 {
+    font-family: 'Staatliches', cursive;
+    color: #15B9D5;
+}
+h1 {
+    font-size: 3.4rem;
+}
+h2 {
+    font-size: 2.4rem;
+}
+h3 {
+    font-size: 3rem;
+}
+
+.btn-success {
+    background-color: #DC135F;
+    border-color: #DC135F;
+    padding: .8rem 0;
+    text-transform: uppercase;
+    border-radius: .8rem;
+}
+.btn-success:hover {
+    background-color: rgb(184, 5, 73);
+    border-color: rgb(192, 7, 78);
+}
+.slider {
+    background: url(../img//superior.jpg);
+    min-height: 600px;
+    height: 100vh;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+.slider h1 {
+    color: white;
+}
+.slider em {
+    font-family: 'Covered By Your Grace', cursive;
+    font-size: 4rem;
+    order: -1;
+    line-height: .8;
+    color: rgba(255, 255, 255, .5);
+}
+@media (min-width:768px) {
+    .slider em {
+        font-size: 8rem;
+    }
+}
+.home {
+    position: relative;
+}
+.home .navegacion {
+    background: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.nav-link.active {
+    border-bottom: 5px solid white;
+}
+blockquote {
+    font-weight: bold;
+    line-height: 2;
+}
+p {
+    font-size: 1.2rem;
+    line-height: 2;
+}
+.navegacion {
+    background-color: #15B9D5;
+}
+header .nav a {
+    font-family: 'Staatliches', cursive;
+    font-size: 2rem;
+    color: white;
+}
+footer .nav a,
+.copyright {
+    font-family: 'Staatliches', cursive;
+    font-size: 1.6rem;
+    color: black;
+}
+
+.listado1{
+    border-radius: 10px;
+}
+
+.listado1:hover{
+    transition: 0.2s ease;
+    box-shadow: 0 0 15px #00eaff;
+    cursor: pointer;
+}
+
+.listado-iconos {
+    background-color: rgb(245, 245, 245);
+}
+.listado-iconos img {
+    height: 100px;
+}
+
+
+.descuento {
+    height: 400px;
+    background-image: linear-gradient( rgba(0, 0, 0, .5) 0%,  rgba(0, 0, 0, .5) 100%),  url(../img/cupon.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+@media (min-width:768px) {
+    .descuento {
+        height: 400px;
+        background-image:  linear-gradient(
+            to right, 
+            rgba(0, 0, 0, .5) 0%, 
+            rgba(0, 0, 0, .5) 50%, 
+            transparent 50%, 
+            transparent 100%
+        ), url(../img/cupon.jpg);
+    }
+}
+.descuento .contenido {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 400px;
+    color: white;
+}
+.descuento p {
+    font-family: 'Staatliches', cursive;
+    line-height: .8;
+}
+.descuento .titulo {
+    font-size: 2.4rem;
+}
+.descuento .precio {
+    color: #15B9D5;
+    font-size: 3rem;
+}
+
+.proximos-viajes p {
+    font-size: .9rem;
+}
+i {
+    color: #DC135F;
+    font-size: 2rem;
+}
+
+.testimoniales p{
+    font-size: .8rem;
+    font-weight: normal;
+}
+.testimoniales p::before {
+    background-image: url(../img/quote.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 40px;
+    content: '';
+    width: 40px;
+    height: 40px;
+    display: block;
+    margin-bottom: 1rem;
+}
+.blockquote-footer {
+    text-align: right;
+    color: #DC135F;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+footer.footer-mid {
+    background: linear-gradient(90deg, #0a0a0a, #1a1a1a); /* Fondo visible */
+    color: #ddd;
+    padding: 30px 0 20px;
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    font-size: 15px;
+    border-top: 2px solid #00eaff; /* Línea gamer */
+}
+
+.footer-mid-contenedor {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-info h3 {
+    color: #00eaff;
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+
+.footer-info p {
+    margin: 0;
+    color: #aaa;
+}
+
+.footer-links a {
+    margin-left: 15px;
+    color: #bbb;
+    text-decoration: none;
+    font-weight: 400;
+}
+
+.footer-links a:hover {
+    color: #00eaff;
+}
+
+.footer-copy {
+    text-align: center;
+    margin-top: 15px;
+    color: #888;
+    font-size: 13px;
+}
+
+/* HEADER LLAMATIVO GAMER */
+header.header-neo {
+    background: linear-gradient(90deg, #0a0f1f, #111, #0a0f1f);
+    padding: 20px 0;
+    border-bottom: 3px solid #00eaff;
+    box-shadow: 0 0 15px rgba(0, 238, 255, 0.3);
+}
+
+.header-neo-contenedor {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-neo-logo h1 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 700;
+    color: #00eaff;
+    text-shadow: 0 0 10px #00eaff;
+    letter-spacing: 1px;
+}
+
+.header-neo-nav a {
+    margin-left: 25px;
+    color: #d0d0d0;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    transition: 0.2s ease;
+}
+
+.header-neo-nav a:hover {
+    color: #00eaff;
+    text-shadow: 0 0 8px #00eaff;
+}
+
+.main-content {
+    background: linear-gradient(to right, #0a0f24, #000000);
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    font-family: "Fira Code Medium", monospace;
+}
+
+.fila1{
+    margin-top: 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.tarjetas:hover {
+    transform: scale(1.03);
+    transition: 0.2s ease;
+    box-shadow: 0 0 15px #00eaff;
+    cursor: pointer;
+}
+
+.bg-neon-blue {
+    background: linear-gradient(
+            rgba(0, 0, 0, 0.75),   /* 60% de opacidad */
+            rgba(0, 0, 0, 0.75)
+    ),
+    url('/img/nieve.png');
+    padding-left: 20px;
+    padding-top: 15px;
+}
+
+.filaLanzamientos img{
+    height: 100px;
+}
+
+.lanzamiento {
+    padding-top: 5px;
+}
+
+.lanzamiento p {
+    padding-top: 5px;
+    font-size: 15px;
+    font-family: "Fira Code Medium", monospace;
+}
+
+.goty p,h3{
+    font-family: "Fira Code Medium", monospace;
+    font-size: 17px;
+}
+
+.nosotros{
+    background: linear-gradient(to right, #0a0f24, #000000);
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    font-family: "Fira Code Medium", monospace;
+}
+
+.nosotros h1,h2{
+    color: #54a0a6;
+    text-shadow: 0 0 10px #3f666c;
+    font-size: 35px;
+}
+
+.nosotros p{
+    font-size: 15px;
+}
+
+.contacto{
+    border: solid black 3px;
+    border-radius: 10px;
+    background: linear-gradient(to right, #171c39, #171616);
+}
+.listado{
+    background-color:#0a0f24;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    font-family: "Fira Code Medium", monospace;
+    font-size: 13px;
+}
+
+.listadoTarjetas{
+    height: 200px;
+}
+
+.listado h3{
+    font-size: 30px;
+}
+
+.listado img{
+    height: 35%;
+}
+
+.card-juego {
+    height: 420px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-juego .card-body {
+    flex: 1;
+    overflow: hidden;
+}
+
+.card-juego img {
+    height: 225px;
+    object-fit: cover;
+}
+
+.juegoInd{
+    background-color:#0a0f24;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    font-family: "Fira Code Medium", monospace;
+    font-size: 12px;
+}
+
+.juegoInd h1{
+    font-size: 40px;
+    color: #54a0a6;
+    text-shadow: 0 0 10px #3f666c;
+    margin-bottom: 30px;
+}
+
+.juegoInd p,li{
+    font-size: 16px;
+}
+
+.juegoInd img{
+    width: 100%;
+}
+
+.noticias{
+    padding-top: 25px;
+    color: white;
+    font-size: 10px;
+    background: linear-gradient(to right, #0a0f24, #000000);
+    padding-bottom: 20px;
+}
+
+.noticias1{
+    color: white;
+    font-size: 10px;
+    background: linear-gradient(to right, #0a0f24, #000000);
+    border-radius: 10px;
+    border: solid 7px black;
+    margin-bottom: 10px;
+}
+
+.noticias img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 6px; /* opcional */
+}
+
+.noticiasTexto p{
+    font-size: 12px;
+}
+
+.noticias1:hover {
+    transform: scale(1.03);
+    transition: 0.2s ease;
+    box-shadow: 0 0 15px #00eaff;
+    cursor: pointer;
+}
+
+.formulario{
+    background-color:#0a0f24;
+}
+
+.valoraciones h2{
+    font-size: 30px;
+}
+
+.cajaValoracion{
+    height: 200px;
+    border-radius: 10px;
+    border: solid black 1px;
+}
+
+.cajaValoracion p{
+    font-size: 15px;
+}
+
+
+
+
+
+
+
+

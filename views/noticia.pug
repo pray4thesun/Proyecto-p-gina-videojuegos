@@ -1,0 +1,22 @@
+extends ./layout/index
+block contenido
+    section.juegoInd
+        .container.juegoInd
+            .row.g-4
+                .col-md-12
+                    h1.text-center.mb-6=resultadoNoticia.titulo
+            .row.g-4
+                .col-md-6
+                    p · #{resultadoNoticia.contenido}
+                .col-md-6
+                    img(src=`/img/${resultadoNoticia.imagen}` alt=resultadoNoticia.titulo)
+            .row.g-4
+                .col-md-12
+                    li Fecha publicación:
+                        |  #{resultadoNoticia.fecha_publicacion}
+
+            .row.mt-4
+                .col-md-6.text-center
+                    a.btn.btn-secondary(href="/") ← Volver a inicio
+                .col-md-6.text-center
+                    a.btn.btn-secondary(href="/noticias") ← Ver más noticias

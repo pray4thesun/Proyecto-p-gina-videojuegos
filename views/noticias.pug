@@ -1,0 +1,23 @@
+extends ./layout/index
+
+block contenido
+    section.noticias
+        .container
+            h1.text-center.mb-5 Últimas noticias de Videojuegos
+            p Toda la actualidad del mundo de los videojuegos y sus diferentes plataformas para que siempre estés al corriente de la última actualización o contenido relacionado con tus títulos preferidos, de las fechas de lanzamiento de los juegos más esperados, los anuncios más importantes, nuevas imágenes o tráileres y todas las curiosidades del mundillo para mantenerte informado.
+
+            if noticias.length === 0
+                p.text-center No hay novedades!
+            else
+                        each noticia in noticias
+                            .row.g-4.align-items-center.noticias1
+                                    .col-md-4
+                                        img(src=`/img/${noticia.imagen}` alt=noticia.titulo)
+                                    .col-md-6
+                                        .card-body.noticiasTexto
+                                            h5.card-title= noticia.titulo
+                                            p.card-text= noticia.contenido.substring(0,150)+"..."
+                                    .col-md-2
+                                                a.btn.btn-primary.mt-2(href=`/noticias/${noticia.slug}`)
+                                                    | Ver más 🔍
+

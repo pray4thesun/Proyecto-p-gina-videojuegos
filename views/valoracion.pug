@@ -1,0 +1,43 @@
+extends ./layout/index
+
+block contenido
+    section.listado
+        .container.mt-5.juegoInd
+            .row.justify-content-center
+                .col-md-8
+                    h2.text-center.mb-4 Deja tu valoración
+
+                    form(action="/valoracion" method="POST" class="mt-4 p-4 bg-dark text-white")
+
+                        // El juego lo pasamos por el slug, así lo añadimos a su pagina directamente
+                        input(type="hidden" name="juego" value=juego)
+                        input(type="hidden" name="slug" value=slug)
+
+                        .mb-3
+                            label.form-label(for="nombre_usuario") Nombre de usuario
+                            input.form-control(type="text" id="nombre_usuario" name="nombre_usuario" required)
+
+                        .mb-3
+                            label.form-label(for="correo") Correo electrónico
+                            input.form-control(type="email" id="correo" name="correo" required)
+
+                        .mb-3
+                            label.form-label(for="calificacion") Calificación |
+                            select.form-select(id="calificacion" name="calificacion" required)
+                                option(value="" disabled selected) Selecciona una calificación
+                                option(value="1") 1
+                                option(value="2") 2
+                                option(value="3") 3
+                                option(value="4") 4
+                                option(value="5") 5
+
+                        .mb-3
+                            label.form-label(for="comentario") Comentario
+                            textarea.form-control(id="comentario" name="comentario" rows="4" required)
+
+                        button.btn.btn-primary.mt-3(type="submit") Enviar valoración
+
+            .row.justify-content-center
+                .col-md-8
+                    br
+                    a.btn.btn-secondary(href="/juegos") ← Volver a la lista de juegos

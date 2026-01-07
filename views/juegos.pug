@@ -1,0 +1,38 @@
+extends ./layout/index
+
+block contenido
+    section.listado
+        .container
+            h1.text-center.mb-5 Lista de Juegos
+
+            if juegos.length === 0
+                p.text-center No hay juegos disponibles en este momento.
+            else
+                .row
+                    each juego in juegos
+                        .col-md-6.mb-4.listado.listado1
+                            a(href=`/juegos/${juego.slug}` class="text-decoration-none")
+
+                                .card.card-juego.shadow-sm.h-100
+                                    img.card-img-top(src=`/img/${juego.imagen}` alt=juego.titulo)
+
+                                    .card-body.listado
+                                        h3.card-text= juego.titulo
+                                        p.card-text
+                                            p=juego.descripcion.substring(0,75)+"..."
+
+                                        ul.list-unstyled.mt-3
+                                            li Plataformas disponible:
+                                                |  #{juego.consola}
+                                            li Tipo:
+                                                |  #{juego.tipo_juego}
+                                            li Precio:
+                                                if juego.precio === 'Free'
+                                                    |  Free
+                                                else
+                                                    |  #{juego.precio}€
+
+
+                                    .card-footer.listado
+                                        a.btn.btn-primary.w-100(href=`/juegos/${juego.slug}`)
+                                            | Ver más🔍

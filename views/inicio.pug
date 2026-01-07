@@ -1,0 +1,92 @@
+extends ./layout/index
+block contenido
+
+    main.main-content
+        .container
+            .row.align-items-center
+                // Columna de la imagen (8 columnas)
+                .col-md-8
+                    .position-relative.text-center
+                        img.img-fluid.rounded(src="/img/goty.webp" alt="GOTY")
+
+                // Columna del texto (4 columnas)
+                .col-md-4.goty
+                    h3.display-4.text-white.medium.font-weight-bold GOTY 2025
+                    p.lead.text-white Clair obscur: Expedition 33
+                    p.text-white.small Cada año un grupo de héroes es marcado para morir. Enfréntate a criaturas colosales, magia corrupta y un destino escrito desde hace generaciones. Un viaje intenso y emocional que lo convierten en uno de los títulos más impactantes del año.
+
+        // Sección de noticias
+        .container.mt-5
+            h2.text-white.mb-4 Entérate de lo último
+
+            .row.g-4
+                each noticia in noticias
+                    .col-md-4
+                        a(href=`/noticias/${noticia.slug}` class="text-decoration-none")
+                            .card.bg-dark.text-white.h-100.tarjetas
+                                img.card-img-top(src=`/img/${noticia.imagen}` alt=noticia.titulo)
+                                .card-body
+                                    h5.card-title= noticia.titulo
+                                    p.card-text= noticia.descripcion
+
+
+            .row.g-4.fila1
+                .col-md-12
+                    .card.bg-neon-blue.text-white.h-100
+                        p
+                            | ¡Obtén packs de juegos más baratos
+                            a(href="https://www.humblebundle.com/games" target="_blank")   aquí
+                            | !
+
+            //Lanzamientos. De esto no pongo vista como tal, asi que lo podemos dejar asi
+            br
+            h2.text-white.mb-4 Próximos lanzamientos:
+            .row.g-4.filaLanzamientos
+                .col-md-6.d-flex.align-items-center.lanzamiento.mb-3.p-2
+                    img(src="/img/nioh.jpg" alt="lanzamiento 1" style="width:150px; height:auto; margin-right:15px;")
+                    p.text-white
+                        | RPG de acción brutal con combates rápidos y jefes desafiantes.
+                        br
+                        | Fecha: 6/2/2026
+
+                .col-md-6.d-flex.align-items-center.lanzamiento.mb-3.p-2
+                    img(src="/img/codevein.jpg" alt="lanzamiento 2" style="width:150px; height:auto; margin-right:15px;")
+                    p.text-white
+                        | Soulslike anime con exploración profunda y estilo único.
+                        br
+                        | Fecha: 30/1/2026
+
+
+            .row.g-4.filaLanzamientos
+                .col-md-6.d-flex.align-items-center.lanzamiento.mb-3.p-2
+                    img(src="/img/requiem.png" alt="lanzamiento 3" style="width:150px; height:auto; margin-right:15px;")
+                    p.text-white
+                        | Nueva entrega de la saga Resident Evil, volvemos a Raccoon City.
+                        br
+                        | Fecha: 27/2/2026
+                .col-md-6.d-flex.align-items-center.lanzamiento.mb-3.p-2
+                    img(src="/img/gta.jpg" alt="lanzamiento 4" style="width:150px; height:auto; margin-right:15px;")
+                    p.text-white
+                        | Diviértete con tus amigos por las calles de Florida.
+                        br
+                        | Fecha: 19/11/2026
+            .row.g-4.filaLanzamientos
+                .col-md-6.d-flex.align-items-center.lanzamiento.mb-3.p-2
+                    img(src="/img/hytale.jpg" alt="lanzamiento 4" style="width:150px; height:auto; margin-right:15px;")
+                    p.text-white
+                        | Ambicioso sandbox para escapar tu creatividad.
+                        br
+                        | Fecha: 13/1/2026
+                .col-md-6.d-flex.align-items-center.lanzamiento.mb-3.p-2
+                    img(src="/img/nanatsu.jpg" alt="lanzamiento 4" style="width:150px; height:auto; margin-right:15px;")
+                    p.text-white
+                        | Revive nuevos momentos en el universo del anime.
+                        br
+                        | Fecha: 28/1/2026
+
+
+
+
+
+
+
