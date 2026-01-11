@@ -9,8 +9,8 @@ block contenido
 
                     form(action="/valoracion" method="POST" class="mt-4 p-4 bg-dark text-white")
 
-                        // El juego lo pasamos por el slug, así lo añadimos a su pagina directamente
-                        input(type="hidden" name="juego" value=juego)
+                        // Enviamos el ID del juego, no el título
+                        input(type="hidden" name="juego_id" value=juego_id)
                         input(type="hidden" name="slug" value=slug)
 
                         .mb-3

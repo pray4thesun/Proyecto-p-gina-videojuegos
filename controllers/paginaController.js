@@ -19,44 +19,52 @@ const paginaInicio = async (req, res) => {
 
 
 const paginaJuegos = async (req, res) => {
-    //Consulta BD
     const juegos = await Juego.findAll();
-    console.log(juegos);
+
     res.render('juegos', {
         pagina: 'Juegos',
-        juegos: juegos,
+        juegos
     });
-}
+};
 
 const paginaJuegosIndividuales = async (req, res) => {
-    const {slug} = req.params;
+    const { slug } = req.params;
 
-    try{
-        const resultado = await Juego.findOne({where: {slug:slug}});
+    try {
+        // 1. Buscar el juego por slug
+        const resultado = await Juego.findOne({ where: { slug } });
+
+        if (!resultado) {
+            return res.redirect('/juegos');
+        }
+
+        // 2. Buscar valoraciones por juego_id
         const valoraciones = await Valoracion.findAll({
-            where: { juego: resultado.titulo },
+            where: { juego_id: resultado.id },
             order: [['id', 'DESC']],
-            limit:3
+            limit: 3
         });
 
+        // 3. Calcular media
         let media = 0;
         if (valoraciones.length > 0) {
-            let suma = 0;
-            for (let v of valoraciones) {
-                suma += v.calificacion;
-            }
-            media = (suma / valoraciones.length).toFixed(1); }
+            const suma = valoraciones.reduce((acc, v) => acc + v.calificacion, 0);
+            media = (suma / valoraciones.length).toFixed(1);
+        }
 
+        // 4. Renderizar vista
         res.render('juego', {
             pagina: 'Informacion Juegos',
-            resultado: resultado,
-            valoraciones: valoraciones,
-            media: media
-        })
-    } catch(error) {
-        console.log(error)
+            resultado,
+            valoraciones,
+            media
+        });
+
+    } catch (error) {
+        console.log(error);
     }
-}
+};
+
 
 const paginaNoticias = async (req, res) => {
     const noticias = await Noticia.findAll();
@@ -97,7 +105,8 @@ const paginaValoracion = async (req, res) => {
             pagina: 'Valoraciones',
             juego: resultadoSlug.titulo,
             slug: slug,
-            resultadoSlug: resultadoSlug
+            resultadoSlug: resultadoSlug,
+            juego_id: resultadoSlug.id
         });
 
     } catch (error) {
@@ -108,7 +117,7 @@ const paginaValoracion = async (req, res) => {
 const guardarValoracion = async (req, res) => {
     console.log("BODY:", req.body);
 
-    const { nombre_usuario, correo, calificacion, comentario, juego, slug } = req.body;
+    const { nombre_usuario, correo, calificacion, comentario, juego_id, slug } = req.body;
     const errores = [];
 
     if(nombre_usuario.trim() === ''){
@@ -124,13 +133,13 @@ const guardarValoracion = async (req, res) => {
     if(errores.length > 0){
         return res.render('valoracion', {
             pagina: 'Valoraciones',
-            errores:errores,
-            nombre_usuario:nombre_usuario,
-            correo:correo,
-            calificacion:calificacion,
-            comentario:comentario,
-            juego:juego,
-            slug:slug
+            errores,
+            nombre_usuario,
+            correo,
+            calificacion,
+            comentario,
+            slug,
+            juego_id
         });
     }
 
@@ -140,7 +149,7 @@ const guardarValoracion = async (req, res) => {
             correo,
             calificacion,
             comentario,
-            juego
+            juego_id
         });
 
         res.redirect(`/juegos/${slug}`);
@@ -149,6 +158,7 @@ const guardarValoracion = async (req, res) => {
         console.log(error);
     }
 };
+
 
 
 

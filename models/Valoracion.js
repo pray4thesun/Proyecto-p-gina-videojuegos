@@ -2,19 +2,20 @@ import Sequelize from "sequelize";
 import db from "../config/db.js";
 
 const Valoracion = db.define("valoracion", {
-    nombre_usuario:{
+    nombre_usuario: {
         type: Sequelize.STRING
     },
-    correo:{
+    correo: {
         type: Sequelize.STRING
     },
-    juego:{
-        type: Sequelize.STRING
+    juego_id: {
+        type: Sequelize.BIGINT,
+        allowNull: false
     },
-    calificacion:{
+    calificacion: {
         type: Sequelize.INTEGER
     },
-    comentario:{
+    comentario: {
         type: Sequelize.STRING
     },
 }, {
@@ -22,6 +23,5 @@ const Valoracion = db.define("valoracion", {
     freezeTableName: true,
     timestamps: false
 });
-
 
 export default Valoracion;
